@@ -7,7 +7,7 @@
 #   By: andry-ha <andry-ha@student.42antananarivo.   +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/04/09 14:08:53 by andry-ha            #+#    #+#            #
-#   Updated: 2026/04/10 15:07:19 by andry-ha           ###   ########.fr      #
+#   Updated: 2026/04/10 15:54:20 by andry-ha           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     total_growth = rose.height - initial_height
     print(f"Growth this week: {round(total_growth, 1)}cm")
 
-    print("\n**********************\n")  
+    print("\n**********************\n")
     print("=== Garden Plant Growth ===")
     sunflower.show()
 
