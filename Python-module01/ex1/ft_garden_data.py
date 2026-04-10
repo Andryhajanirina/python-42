@@ -7,12 +7,12 @@
 #   By: andry-ha <andry-ha@student.42antananarivo.   +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/04/09 13:24:24 by andry-ha            #+#    #+#            #
-#   Updated: 2026/04/09 14:07:04 by andry-ha           ###   ########.fr      #
+#   Updated: 2026/04/10 15:07:33 by andry-ha           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
 class Plant:
-    def __init__(self, name: str, height: int, age: int) -> any:
+    def __init__(self, name: str, height: int, age: int) -> None:
         self.name = name
         self.height = height
         self.age = age
