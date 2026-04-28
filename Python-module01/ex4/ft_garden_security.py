@@ -7,7 +7,7 @@
 #   By: andry-ha <andry-ha@student.42antananarivo.   +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/04/10 15:50:04 by andry-ha            #+#    #+#            #
-#   Updated: 2026/04/13 12:57:58 by andry-ha           ###   ########.fr      #
+#   Updated: 2026/04/27 10:42:27 by andry-ha           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -15,26 +15,23 @@ class Plant:
     def __init__(self, name: str, height: float = 0.0, age: int = 0) -> None:
         self.name = name.capitalize()
         self._height = 0.0
-        self.__private_name = name
         self._age = 0
         self.set_height(height)
         self.set_age(age)
 
     def set_age(self, age: int) -> None:
         if age < 0:
-            print(f"Error: Invalid age '{age}'"
-                  f" provided for {self.name}. "
-                  f"Age cannot be negative.")
+            print(f"{self.name.capitalize()}: Error, "
+                  f"age cannot be negative.\nAge update rejected")
         else:
             self._age = age
 
-    def set_height(self, sheight: float) -> None:
-        if sheight < 0:
-            print(f"Error: Invalid height '{sheight}'"
-                  f" provided for {self.name}. "
-                  f"Height cannot be negative.")
+    def set_height(self, height: float) -> None:
+        if height < 0:
+            print(f"{self.name.capitalize()}: Error, "
+                  f"height cannot be negative.\nHeight update rejected")
         else:
-            self._height = sheight
+            self._height = height
 
     def get_age(self) -> int:
         return self._age
@@ -52,25 +49,21 @@ class Plant:
         if label:
             print(f"=== {label} ===")
         print(
-            f"Created: {self.name}: "
-            f"{self._height:.1f}cm, {self._age} days old"
+            f"Plant created: {self.name}: "
+            f"{self._height:.1f}cm, {self._age} days old\n"
         )
 
 
 if __name__ == "__main__":
-    print("--- Test 1 : With valid values ---")
-    rose = Plant("Rose", 15.5, 2)
-    rose.show("Show Rose info")
-    print(f"Plant : {rose.name}\nHeight : {rose.get_height()}\n"
-          f"Age : {rose.get_age()}")
+    print("=== Garden Security System ===")
+    rose = Plant("Rose", 15.0, 10)
+    rose.show()
+    rose.set_height(25)
+    rose.set_age(30)
+    print(f"Height updated: {rose.get_height()}cm\n"
+          f"Age updadated: {rose.get_age()} days\n")
 
-    print("\n--- Test 2 : With invalid values negative "
-          "(Leaving data unchanged) ---")
-    cactus = Plant("Cactus", -5.0, -1)
-    cactus.show("Show Cactus info")
-    print(f"Plant : {cactus.name}\nHeight : {cactus.get_height()}\n"
-          f"Age : {cactus.get_age()}")
-
-    print("\n--- Test 3 : Invalid modification attempt ---")
     rose.set_height(-12.3)
-    print(f"Height after echec : {rose.get_height()}")
+    rose.set_age(-12)
+    print(f"Current state: {rose.name.capitalize()}: "
+          f"{rose.get_height():.1f}cm, {rose.get_age()} days old")

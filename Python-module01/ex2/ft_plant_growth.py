@@ -7,7 +7,7 @@
 #   By: andry-ha <andry-ha@student.42antananarivo.   +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/04/09 14:08:53 by andry-ha            #+#    #+#            #
-#   Updated: 2026/04/10 15:54:20 by andry-ha           ###   ########.fr      #
+#   Updated: 2026/04/28 11:13:29 by andry-ha           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -35,7 +35,8 @@ class Plant:
 if __name__ == "__main__":
     rose = Plant("rose", 25.0, 30)
     sunflower = Plant("sunflower", 80, 45)
-    initial_height = rose.height
+    rose_init_height = rose.height
+    sunflower_init_height = sunflower.height
 
     print("=== Garden Plant Growth ===")
     rose.show()
@@ -45,14 +46,15 @@ if __name__ == "__main__":
         rose.grow(0.8)
         rose.show(f"Day {day}")
 
-    total_growth = rose.height - initial_height
+    total_growth = rose.height - rose_init_height
     print(f"Growth this week: {round(total_growth, 1)}cm")
 
-    print("\n**********************\n")
-    print("=== Garden Plant Growth ===")
+    print("\n=== Garden Plant Growth ===")
     sunflower.show()
 
     for day in range(1, 8):
         sunflower.age(1)
         sunflower.grow(2.1)
         sunflower.show(f"Day {day}")
+    total_growth = sunflower.height - sunflower_init_height
+    print(f"Growth this week: {round(total_growth, 1)}cm")
