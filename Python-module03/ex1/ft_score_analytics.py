@@ -1,0 +1,79 @@
+#!/usr/bin/env python3
+# ########################################################################### #
+#   shebang: 1                                                                #
+#                                                          :::      ::::::::  #
+#   ft_score_analytics.py                                :+:      :+:    :+:  #
+#                                                      +:+ +:+         +:+    #
+#   By: andry-ha <andry-ha@student.42antananarivo.   +#+  +:+       +#+       #
+#                                                  +#+#+#+#+#+   +#+          #
+#   Created: 2026/05/04 15:19:44 by andry-ha            #+#    #+#            #
+#   Updated: 2026/05/07 10:40:16 by andry-ha           ###   ########.fr      #
+#                                                                             #
+# ########################################################################### #
+
+import sys
+
+
+class ScoreAnalyticsError(Exception):
+    pass
+
+
+class NoScoresProvidedError(ScoreAnalyticsError):
+    def __init__(self) -> None:
+        message = "No scores provided. "\
+                  "Usage: python3 ft_score_analytics.py <score1> <score2> ..."
+        super().__init__(message)
+
+
+class NonNumercicScoreError(ScoreAnalyticsError):
+    def __init__(self, score_str: str) -> None:
+        message = f"Invalid parameter '{score_str}'"
+        super().__init__(message)
+
+
+def ft_score_analytics() -> None:
+    print("=== Player Score Analytics ===")
+    try:
+        scores_string: list[str] = sys.argv[1:]
+        if not scores_string:
+            raise NoScoresProvidedError()
+
+        scores: list[int] = []
+        non_numeric_error: list[ScoreAnalyticsError] = []
+        for score_str in scores_string:
+            try:
+                scores.append(int(score_str))
+            except ValueError:
+                non_numeric_error.append(NonNumercicScoreError(score_str))
+
+        if non_numeric_error and not scores:
+            non_numeric_error.append(NoScoresProvidedError())
+
+        for error in non_numeric_error:
+            print(f"{error}")
+
+        if scores:
+            total_players: int = len(scores)
+            total_score: int = sum(scores)
+            average_score: float = total_score / total_players
+            highest_score: int = max(scores)
+            lowest_score: int = min(scores)
+            score_range: int = highest_score - lowest_score
+
+            print(f"Total players: {total_players}")
+            print(f"Total score: {total_score}")
+            print(f"Average score: {average_score:.1f}")
+            print(f"High score: {highest_score}")
+            print(f"Low score: {lowest_score}")
+            print(f"Score range: {score_range}")
+
+    except ScoreAnalyticsError as e:
+        print(f"{e}")
+    except ZeroDivisionError as e:
+        print(f"Error: Cannot calculate average score - {e}")
+    finally:
+        print()
+
+
+if __name__ == "__main__":
+    ft_score_analytics()

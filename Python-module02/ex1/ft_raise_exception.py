@@ -7,7 +7,7 @@
 #   By: andry-ha <andry-ha@student.42antananarivo.   +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/04/27 13:16:12 by andry-ha            #+#    #+#            #
-#   Updated: 2026/04/27 14:23:43 by andry-ha           ###   ########.fr      #
+#   Updated: 2026/04/29 13:46:06 by andry-ha           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -23,7 +23,7 @@ def input_temperature(temp_str: str) -> int:
 def test_temperature() -> None:
     print("=== Garden Temperature Checker ===\n")
 
-    test_cases: list = ["25", "abc", "100", "-50"]
+    test_cases: list[str] = ["25", "abc", "100", "-50"]
 
     for data in test_cases:
         print(f"Input data is '{data}'")

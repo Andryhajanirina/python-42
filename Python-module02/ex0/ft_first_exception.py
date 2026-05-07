@@ -7,7 +7,7 @@
 #   By: andry-ha <andry-ha@student.42antananarivo.   +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/04/27 12:15:33 by andry-ha            #+#    #+#            #
-#   Updated: 2026/04/27 13:14:49 by andry-ha           ###   ########.fr      #
+#   Updated: 2026/04/29 13:46:30 by andry-ha           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -18,7 +18,7 @@ def input_temperature(temp_str: str) -> int:
 def test_temperature() -> None:
     print("=== Garden Temperature ===")
 
-    test_cases: list = ["25", "abc"]
+    test_cases: list[str] = ["25", "abc"]
 
     for data in test_cases:
         print(f"Input data is '{data}'")

@@ -7,19 +7,19 @@
 #   By: andry-ha <andry-ha@student.42antananarivo.   +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/04/27 14:22:40 by andry-ha            #+#    #+#            #
-#   Updated: 2026/04/27 14:56:39 by andry-ha           ###   ########.fr      #
+#   Updated: 2026/04/29 14:44:49 by andry-ha           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
-def garden_operations(operation_number: int):
+def garden_operations(operation_number: int) -> None:
     if operation_number == 0:
         int("abc")
     elif operation_number == 1:
         10 / 0
     elif operation_number == 2:
-        open("not_exist.txt", "r")
+        open("/non/existent/file", "r")
     elif operation_number == 3:
-        5 + "fleurs"
+        "flower" + 5
 
 
 def test_error_types() -> None:
@@ -30,13 +30,13 @@ def test_error_types() -> None:
         try:
             garden_operations(data)
         except ValueError as e:
-            print(f"Caught ValueError: {e}\n")
+            print(f"Caught ValueError: {e}")
         except ZeroDivisionError as e:
-            print(f"Caught ZeroDivisionError: {e}\n")
+            print(f"Caught ZeroDivisionError: {e}")
         except FileNotFoundError as e:
-            print(f"Caught FileNotFoundError: {e}\n")
+            print(f"Caught FileNotFoundError: {e}")
         except TypeError as e:
-            print(f"Caught TypeError: {e}\n")
+            print(f"Caught TypeError: {e}")
     print("Operation completed successfully\n")
 
     print("All error types tested successfully!")

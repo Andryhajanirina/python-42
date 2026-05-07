@@ -37,3 +37,6 @@ Critical content demanding immediate user attention due to potential risks.
 Caution
 
 Negative potential consequences of an action.
+
+INSTRUCTION FOR BORN 2 BE ROOT
+https://github.com/Vikingu-del/Born2beRoot

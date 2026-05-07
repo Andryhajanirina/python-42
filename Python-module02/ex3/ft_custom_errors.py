@@ -7,14 +7,13 @@
 #   By: andry-ha <andry-ha@student.42antananarivo.   +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/04/27 14:57:43 by andry-ha            #+#    #+#            #
-#   Updated: 2026/04/27 16:02:51 by andry-ha           ###   ########.fr      #
+#   Updated: 2026/04/29 15:28:37 by andry-ha           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
 class GardenError(Exception):
-    def __init__(self, message: str = "Unknown plant error"):
-        super().__init__(message)
-        self.message = message
+    """A fundamental error for the entire garden."""
+    pass
 
 
 class PlantError(GardenError):
@@ -24,23 +23,31 @@ class PlantError(GardenError):
         super().__init__(message)
 
 
-class WatterError(GardenError):
+class WaterError(GardenError):
     def __init__(self, message: str = "Not enough water in the tank!"):
         super().__init__(message)
 
 
 if __name__ == "__main__":
+    print("=== Custom Garden Errors Demo ===\n")
     try:
-        raise PlantError("Rose")
+        raise PlantError("tomato")
     except PlantError as e:
-        print(f"Caught PlantError: {e}")
+        print(f"Testing PlantError...")
+        print(f"Caught PlantError: {e}\n")
 
     try:
-        raise WatterError()
-    except WatterError as e:
-        print(f"Caught WatterError: {e}")
+        raise WaterError()
+    except WaterError as e:
+        print(f"Testing WaterError...")
+        print(f"Caught WaterError: {e}\n")
 
-    try:
-        raise GardenError()
-    except GardenError as e:
-        print(f"Caught GardenError: {e}")
+    print("Testing catching all garden errors...")
+    all_errors = [PlantError("tomato"), WaterError()]
+    
+    for error in all_errors:
+        try:
+            raise error
+        except GardenError as e:
+            print(f"Caught GardenError: {e}")
+    print(f"\nAll custom error types work correctly!")
