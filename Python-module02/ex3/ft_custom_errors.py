@@ -7,7 +7,7 @@
 #   By: andry-ha <andry-ha@student.42antananarivo.   +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/04/27 14:57:43 by andry-ha            #+#    #+#            #
-#   Updated: 2026/04/29 15:28:37 by andry-ha           ###   ########.fr      #
+#   Updated: 2026/05/07 10:45:01 by andry-ha           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -33,21 +33,21 @@ if __name__ == "__main__":
     try:
         raise PlantError("tomato")
     except PlantError as e:
-        print(f"Testing PlantError...")
+        print("Testing PlantError...")
         print(f"Caught PlantError: {e}\n")
 
     try:
         raise WaterError()
     except WaterError as e:
-        print(f"Testing WaterError...")
+        print("Testing WaterError...")
         print(f"Caught WaterError: {e}\n")
 
     print("Testing catching all garden errors...")
     all_errors = [PlantError("tomato"), WaterError()]
-    
+
     for error in all_errors:
         try:
             raise error
         except GardenError as e:
             print(f"Caught GardenError: {e}")
-    print(f"\nAll custom error types work correctly!")
+    print("\nAll custom error types work correctly!")
