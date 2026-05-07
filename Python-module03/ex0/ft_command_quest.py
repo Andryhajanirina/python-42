@@ -7,11 +7,12 @@
 #   By: andry-ha <andry-ha@student.42antananarivo.   +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/04/30 13:45:40 by andry-ha            #+#    #+#            #
-#   Updated: 2026/05/04 15:15:28 by andry-ha           ###   ########.fr      #
+#   Updated: 2026/05/07 10:47:40 by andry-ha           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
 import sys
+
 
 def ft_command_quest():
     if len(sys.argv) > 1:
@@ -26,6 +27,7 @@ def ft_command_quest():
         print(f"Program name: {sys.argv[0]} ")
         print("No arguments provided!")
         print(f"Total arguments: {len(sys.argv)}")
+
 
 if __name__ == "__main__":
     ft_command_quest()
