@@ -7,7 +7,7 @@
 #   By: andry-ha <andry-ha@student.42antananarivo.   +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/05/07 10:49:39 by andry-ha            #+#    #+#            #
-#   Updated: 2026/05/11 13:32:42 by andry-ha           ###   ########.fr      #
+#   Updated: 2026/05/22 15:49:40 by andry-ha           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -38,9 +38,9 @@ class InvalidCoordinatesError(PositionTrackerError):
 
 
 def distance_3d(point_a: tuple[float, float, float],
-                ppoint_b: tuple[float, float, float]) -> float:
+                point_b: tuple[float, float, float]) -> float:
     x1, y1, z1 = point_a
-    x2, y2, z2 = ppoint_b
+    x2, y2, z2 = point_b
 
     return math.sqrt(
         (x2 - x1) ** 2 +
@@ -55,7 +55,7 @@ def get_player_pos() -> tuple[float, float, float]:
     ).strip()
 
     if not entries:
-        raise InvalidCoordinatesError()
+        raise NoCoordinatesProvidedError
 
     parts = entries.split(",")
 
@@ -69,10 +69,11 @@ def get_player_pos() -> tuple[float, float, float]:
         return (x, y, z)
     except ValueError:
         for coordinate_str in parts:
+            cleaned_coordinate_str = coordinate_str.strip()
             try:
-                float(coordinate_str)
+                float(cleaned_coordinate_str)
             except ValueError:
-                raise NonNumericCoordinatesError(coordinate_str)
+                raise NonNumericCoordinatesError(cleaned_coordinate_str)
         raise InvalidCoordinatesError()
 
 

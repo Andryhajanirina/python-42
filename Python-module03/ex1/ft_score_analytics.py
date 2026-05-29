@@ -7,7 +7,7 @@
 #   By: andry-ha <andry-ha@student.42antananarivo.   +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/05/04 15:19:44 by andry-ha            #+#    #+#            #
-#   Updated: 2026/05/07 10:40:16 by andry-ha           ###   ########.fr      #
+#   Updated: 2026/05/22 15:48:08 by andry-ha           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -25,7 +25,7 @@ class NoScoresProvidedError(ScoreAnalyticsError):
         super().__init__(message)
 
 
-class NonNumercicScoreError(ScoreAnalyticsError):
+class NonNumericScoreError(ScoreAnalyticsError):
     def __init__(self, score_str: str) -> None:
         message = f"Invalid parameter '{score_str}'"
         super().__init__(message)
@@ -33,40 +33,38 @@ class NonNumercicScoreError(ScoreAnalyticsError):
 
 def ft_score_analytics() -> None:
     print("=== Player Score Analytics ===")
+
     try:
         scores_string: list[str] = sys.argv[1:]
         if not scores_string:
             raise NoScoresProvidedError()
 
         scores: list[int] = []
-        non_numeric_error: list[ScoreAnalyticsError] = []
         for score_str in scores_string:
             try:
                 scores.append(int(score_str))
             except ValueError:
-                non_numeric_error.append(NonNumercicScoreError(score_str))
+                print(NonNumericScoreError(score_str))
 
-        if non_numeric_error and not scores:
-            non_numeric_error.append(NoScoresProvidedError())
+        if not scores:
+            raise NoScoresProvidedError()
 
-        for error in non_numeric_error:
-            print(f"{error}")
+        total_players: int = len(scores)
+        total_score: int = sum(scores)
+        average_score: float = total_score / total_players
+        highest_score: int = max(scores)
+        lowest_score: int = min(scores)
+        score_range: int = highest_score - lowest_score
 
-        if scores:
-            total_players: int = len(scores)
-            total_score: int = sum(scores)
-            average_score: float = total_score / total_players
-            highest_score: int = max(scores)
-            lowest_score: int = min(scores)
-            score_range: int = highest_score - lowest_score
+        print(f"Total players: {total_players}")
+        print(f"Total score: {total_score}")
+        print(f"Average score: {average_score:.1f}")
+        print(f"High score: {highest_score}")
+        print(f"Low score: {lowest_score}")
+        print(f"Score range: {score_range}")
 
-            print(f"Total players: {total_players}")
-            print(f"Total score: {total_score}")
-            print(f"Average score: {average_score:.1f}")
-            print(f"High score: {highest_score}")
-            print(f"Low score: {lowest_score}")
-            print(f"Score range: {score_range}")
-
+    except NoScoresProvidedError as e:
+        print(f"{e}")
     except ScoreAnalyticsError as e:
         print(f"{e}")
     except ZeroDivisionError as e:
