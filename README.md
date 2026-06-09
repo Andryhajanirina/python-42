@@ -20,7 +20,7 @@ invalid ones and proceed with the remaining valid inputs unless none remain
 
 > [!IMPORTANT]
 > In Python, a list is a data structure that stores an ordered collection of elements.  
-It is mutable, dynamic, allows duplicates and allows objects of different types to be stored within the same sequence.
+It is mutable, dynamic, <span style="color: orange;">allows duplicates</span> and allows objects of different types to be stored within the same sequence.
 
 ## Exercise 2: Position Tracker (understanding tuple)
 This exercise requires the use of tuples to store 3D coordinates (x, y, z).
@@ -28,11 +28,11 @@ This exercise requires the use of tuples to store 3D coordinates (x, y, z).
 > In Python, a tuple is a sequential data structure similar to a list, but immutable and often faster.  
 It is ideal for ensuring data integrity.  
 The main characteristics of a tuple are:  
-**Immutable:** Once created, it is impossible to add, delete, or modify its elements.  
-**Ordered:** Each element has a specific index. The first element starts at index 0.  
-**Indexable and Iterable:** It is possible to iterate through its elements or access them directly via their index.  
-**Heterogeneous:** It can contain elements of different types (integers, strings, booleans, or even other tuples).  
-**Syntax:** It is generally defined by separating values ​​with commas and enclosing them in parentheses: my_tuple = (1, 2, "text")
+<span style="color: IndianRed;">**Immutable:**</span> Once created, it is impossible to add, delete, or modify its elements.  
+<span style="color: IndianRed;">**Ordered:**</span> Each element has a specific index. The first element starts at index 0.  
+<span style="color: IndianRed;">**Indexable and Iterable:**</span> It is possible to iterate through its elements or access them directly via their index.  
+<span style="color: IndianRed;">**Heterogeneous:**</span> It can contain elements of different types (integers, strings, booleans, or even other tuples).  
+<span style="color: IndianRed;">**Syntax:**</span> It is generally defined by separating values ​​with commas and enclosing them in parentheses: my_tuple = (1, 2, "text")
 
 # Module04 - 
 # Module05 - 
