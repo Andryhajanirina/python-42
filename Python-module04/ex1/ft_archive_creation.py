@@ -7,7 +7,7 @@
 #   By: andry-ha <andry-ha@student.42antananarivo.   +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/06/02 10:31:17 by andry-ha            #+#    #+#            #
-#   Updated: 2026/06/02 13:21:29 by andry-ha           ###   ########.fr      #
+#   Updated: 2026/06/07 15:56:28 by andry-ha           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -44,18 +44,20 @@ def print_separator() -> None:
     print("---")
 
 
-def display_file(filename: str) -> str:
+def display_file_content(filename: str) -> str:
     file: typing.IO[str] | None = None
 
     try:
-        file = open_file(filename, "w")
+        mode = "r"
+        source_mode = "r+" if "w" in mode else mode
+        file = open_file(filename, mode=source_mode)
         content: str = file.read()
 
         print_separator()
         print()
         for line in content:
             print(line, end="")
-        print("\n")
+        print()
         print_separator()
 
         return content
@@ -119,7 +121,7 @@ def main() -> None:
         print("=== Cyber Archives Recovery & Preservation ===")
         print(f"Accessing file '{filename}'")
 
-        display_file(filename)
+        display_file_content(filename)
 
         print("\nTransform data:")
 

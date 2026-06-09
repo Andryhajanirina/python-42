@@ -57,3 +57,6 @@ cython_debug/
 main.py
 *.out
 *.c
+
+# Other file
+# *.txt

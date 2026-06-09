@@ -7,7 +7,7 @@
 #   By: andry-ha <andry-ha@student.42antananarivo.   +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/05/29 13:35:17 by andry-ha            #+#    #+#            #
-#   Updated: 2026/06/02 10:23:09 by andry-ha           ###   ########.fr      #
+#   Updated: 2026/06/08 11:30:45 by andry-ha           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -34,6 +34,7 @@ class OpeningFileError(AncientTextError):
 
 
 def main() -> None:
+
     try:
         args: list[str] = sys.argv[1:]
         if len(args) == 0:
@@ -43,12 +44,13 @@ def main() -> None:
         filename: str = args[0]
 
         file: typing.IO[str] | None = None
+        file = open(filename, "r")
         try:
-            file = open(filename, 'r')
             content: str = file.read()
-            print("---\n")
-            print(content)
-            print("\n---")
+            if content:
+                print("---\n")
+                print(content)
+                print("---")
         except (FileNotFoundError, PermissionError) as e:
             raise OpeningFileError(filename, e)
         finally:
@@ -59,6 +61,8 @@ def main() -> None:
         print(f"{e}")
     except AncientTextError as e:
         print(f"{e}")
+    except Exception as e:
+        print(OpeningFileError(filename, e))
 
 
 if __name__ == "__main__":
