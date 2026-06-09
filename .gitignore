@@ -59,4 +59,4 @@ main.py
 *.c
 
 # Other file
-# *.txt
+*.txt
