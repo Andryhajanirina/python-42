@@ -1,3 +1,16 @@
+#!/usr/bin/env python3
+# ########################################################################### #
+#   shebang: 1                                                                #
+#                                                          :::      ::::::::  #
+#   dark_spellbook.py                                    :+:      :+:    :+:  #
+#                                                      +:+ +:+         +:+    #
+#   By: andry-ha <andry-ha@student.42antananarivo.   +#+  +:+       +#+       #
+#                                                  +#+#+#+#+#+   +#+          #
+#   Created: 2026/06/11 11:37:07 by andry-ha            #+#    #+#            #
+#   Updated: 2026/06/11 12:52:02 by andry-ha           ###   ########.fr      #
+#                                                                             #
+# ########################################################################### #
+
 from .dark_validator import validate_ingredients
 
 
